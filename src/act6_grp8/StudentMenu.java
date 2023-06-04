@@ -1,5 +1,8 @@
 package act6_grp8;
 
+import javax.swing.*;
+import java.awt.*;
+
 class StudentMenu extends javax.swing.JFrame {
 
     /**
@@ -21,8 +24,11 @@ class StudentMenu extends javax.swing.JFrame {
         jPopupTransac = new javax.swing.JPopupMenu();
         jItemInformation = new javax.swing.JMenuItem();
         jItemGrade = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuTransac = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        grdEncode = new javax.swing.JMenuItem();
         jMenuCred = new javax.swing.JMenu();
 
         jPopupTransac.setAlignmentY(1.0F);
@@ -39,6 +45,8 @@ class StudentMenu extends javax.swing.JFrame {
         jItemGrade.setText("Grade Encoding");
         jPopupTransac.add(jItemGrade);
 
+        jMenuItem1.setText("jMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Student Information System");
 
@@ -52,9 +60,31 @@ class StudentMenu extends javax.swing.JFrame {
                 jMenuTransacMenuSelected(evt);
             }
         });
+
+        jMenuItem2.setLabel("Student Information");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenuTransac.add(jMenuItem2);
+
+        grdEncode.setLabel("Grade Encoding");
+        grdEncode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grdEncodeActionPerformed(evt);
+            }
+        });
+        jMenuTransac.add(grdEncode);
+
         jMenuBar1.add(jMenuTransac);
 
         jMenuCred.setText("Credits");
+        jMenuCred.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuCredMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenuCred);
 
         setJMenuBar(jMenuBar1);
@@ -82,6 +112,46 @@ class StudentMenu extends javax.swing.JFrame {
         jPopupTransac.show(jMenuBar1, 0, 20);
     }//GEN-LAST:event_jMenuTransacMenuSelected
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        StudentInformation.main(new String[0]);
+
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void grdEncodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grdEncodeActionPerformed
+        GradeEncoding.main(new String[0]);
+    }//GEN-LAST:event_grdEncodeActionPerformed
+
+    private void jMenuCredMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCredMouseClicked
+        JFrame frame = new JFrame("Credits");
+        frame.setSize(300,200);
+        frame.setLayout(null);
+        frame.setBounds(200,200,300,200);
+        frame.setVisible(true);
+        
+        JLabel contrib, francis, allen, kevern, hiel;
+                
+        contrib = new JLabel("Contributors");
+        contrib.setBounds(20,20,200,20);
+        contrib.setFont(new Font("Arial", Font.BOLD, 16));
+        frame.add(contrib);
+        
+        francis = new JLabel("Francis Clarence B. Dimasupil");
+        francis.setBounds(20,45,200,20);
+        frame.add(francis);
+        
+        allen = new JLabel("Allen James L. Laxamana");
+        allen.setBounds(20,70,200,20);
+        frame.add(allen);
+        
+        kevern = new JLabel("Kevern Joebert C. Angeles");
+        kevern.setBounds(20,95,200,20);
+        frame.add(kevern);
+        
+        hiel = new JLabel("Hiel Shaddai Z. Pascual");
+        hiel.setBounds(20,120,200,20);
+        frame.add(hiel);
+    }//GEN-LAST:event_jMenuCredMouseClicked
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -110,10 +180,13 @@ class StudentMenu extends javax.swing.JFrame {
     //Variables declaration
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem grdEncode;
     private javax.swing.JMenuItem jItemGrade;
     private javax.swing.JMenuItem jItemInformation;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCred;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu jMenuTransac;
     private javax.swing.JPopupMenu jPopupTransac;
     // End of variables declaration//GEN-END:variables
