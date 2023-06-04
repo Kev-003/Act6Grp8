@@ -1,5 +1,8 @@
 package act6_grp8;
 
+import java.awt.Color;
+import java.awt.Font;
+
 class GradeEncoding extends javax.swing.JFrame {
 
     /**
@@ -65,14 +68,14 @@ class GradeEncoding extends javax.swing.JFrame {
         infoTable = new javax.swing.JTable();
         jLabel20 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        sinesosRemark = new javax.swing.JTextField();
-        purcomRemark = new javax.swing.JTextField();
-        mmwRemark = new javax.swing.JTextField();
-        comprogRemark = new javax.swing.JTextField();
-        assemblyRemark = new javax.swing.JTextField();
-        discreteRemark = new javax.swing.JTextField();
-        aquaticsRemark = new javax.swing.JTextField();
-        nstpRemark = new javax.swing.JTextField();
+        sinesosRemark = new javax.swing.JLabel();
+        purcomRemark = new javax.swing.JLabel();
+        mmwRemark = new javax.swing.JLabel();
+        comprogRemark = new javax.swing.JLabel();
+        assemblyRemark = new javax.swing.JLabel();
+        discreteRemark = new javax.swing.JLabel();
+        aquaticsRemark = new javax.swing.JLabel();
+        nstpRemark = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -198,33 +201,20 @@ class GradeEncoding extends javax.swing.JFrame {
 
         jTextField1.setEditable(false);
 
-        sinesosRemark.setEditable(false);
         sinesosRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        sinesosRemark.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sinesosRemarkActionPerformed(evt);
-            }
-        });
 
-        purcomRemark.setEditable(false);
         purcomRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        mmwRemark.setEditable(false);
         mmwRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        comprogRemark.setEditable(false);
         comprogRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        assemblyRemark.setEditable(false);
         assemblyRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        discreteRemark.setEditable(false);
         discreteRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        aquaticsRemark.setEditable(false);
         aquaticsRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        nstpRemark.setEditable(false);
         nstpRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -237,15 +227,38 @@ class GradeEncoding extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel17)
-                        .addGap(156, 156, 156)
-                        .addComponent(jLabel19)
-                        .addGap(19, 19, 19))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lastnameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(firstnameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(middlenameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(255, 255, 255))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(saveButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(calcGWA)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel17)
+                                .addGap(153, 153, 153))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -311,41 +324,18 @@ class GradeEncoding extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel18)
                                             .addComponent(jLabel7))))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(sinesosRemark, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(purcomRemark, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mmwRemark, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comprogRemark, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(assemblyRemark, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(discreteRemark, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(aquaticsRemark, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nstpRemark, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lastnameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(firstnameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(middlenameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(65, 65, 65)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(255, 255, 255))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(calcGWA)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(nstpRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(aquaticsRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(discreteRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(assemblyRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comprogRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mmwRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(purcomRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sinesosRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel19))
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,49 +372,49 @@ class GradeEncoding extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(sinesosUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sinesosGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sinesosRemark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sinesosRemark))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(purcomUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(purcomGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(purcomRemark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(purcomRemark))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(mmwUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mmwGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mmwRemark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mmwRemark))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(comprogUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comprogGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comprogRemark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comprogRemark))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(assemblyUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(assemblyGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(assemblyRemark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(assemblyRemark))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(discreteUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(discreteGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(discreteRemark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(discreteRemark))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(aquaticsUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(aquaticsGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aquaticsRemark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(aquaticsRemark))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(nstpUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nstpGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nstpRemark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nstpRemark))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
@@ -446,18 +436,230 @@ class GradeEncoding extends javax.swing.JFrame {
     }//GEN-LAST:event_middlenameTFActionPerformed
 
     private void calcGWAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcGWAActionPerformed
-        // Calculates the GWA
+        // Calculates the GWA and shows the Remarks
        
+        //Sinesos Remarks
+        if (sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(1) 
+                || sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(2)
+                || sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(3)
+                || sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(4)
+                || sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(5)
+                || sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(6)
+                || sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(7)
+                || sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(8)
+                || sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(9)) 
+        {
+          sinesosRemark.setText(" PASSED ");
+                    sinesosRemark.setForeground(Color.blue);
+        }
         
+        else if (sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(10))
+        {
+                sinesosRemark.setText("     INC ");
+        sinesosRemark.setForeground(Color.red);
+        }
+        
+        else if (sinesosGrade.getSelectedItem() == sinesosGrade.getItemAt(11))
+        {
+                sinesosRemark.setText(" FAILED ");
+        sinesosRemark.setForeground(Color.red);
+        }
+        
+        
+        //PurCom Remarks
+        if (purcomGrade.getSelectedItem() == purcomGrade.getItemAt(1) 
+                || purcomGrade.getSelectedItem() == purcomGrade.getItemAt(2)
+                || purcomGrade.getSelectedItem() == purcomGrade.getItemAt(3)
+                || purcomGrade.getSelectedItem() == purcomGrade.getItemAt(4)
+                || purcomGrade.getSelectedItem() == purcomGrade.getItemAt(5)
+                || purcomGrade.getSelectedItem() == purcomGrade.getItemAt(6)
+                || purcomGrade.getSelectedItem() == purcomGrade.getItemAt(7)
+                || purcomGrade.getSelectedItem() == purcomGrade.getItemAt(8)
+                || purcomGrade.getSelectedItem() == purcomGrade.getItemAt(9)) 
+        {
+            purcomRemark.setText(" PASSED ");
+                    purcomRemark.setForeground(Color.blue);
+        }
+        
+        else if (purcomGrade.getSelectedItem() == purcomGrade.getItemAt(10))
+        {
+                purcomRemark.setText("     INC ");
+        purcomRemark.setForeground(Color.red);
+        }
+        
+        else if (purcomGrade.getSelectedItem() == purcomGrade.getItemAt(11))
+        {
+                purcomRemark.setText(" FAILED ");
+        purcomRemark.setForeground(Color.red);
+        }
+        
+        //MMW Remarks
+         if (mmwGrade.getSelectedItem() == mmwGrade.getItemAt(1) 
+                || mmwGrade.getSelectedItem() == mmwGrade.getItemAt(2)
+                || mmwGrade.getSelectedItem() == mmwGrade.getItemAt(3)
+                || mmwGrade.getSelectedItem() == mmwGrade.getItemAt(4)
+                || mmwGrade.getSelectedItem() == mmwGrade.getItemAt(5)
+                || mmwGrade.getSelectedItem() == mmwGrade.getItemAt(6)
+                || mmwGrade.getSelectedItem() == mmwGrade.getItemAt(7)
+                || mmwGrade.getSelectedItem() == mmwGrade.getItemAt(8)
+                || mmwGrade.getSelectedItem() == mmwGrade.getItemAt(9)) 
+        {
+            mmwRemark.setText(" PASSED ");
+                    mmwRemark.setForeground(Color.blue);
+        }
+        
+        else if (mmwGrade.getSelectedItem() == mmwGrade.getItemAt(10))
+        {
+                mmwRemark.setText("     INC ");
+        mmwRemark.setForeground(Color.red);
+        }
+        
+        else if (mmwGrade.getSelectedItem() == mmwGrade.getItemAt(11))
+        {
+                mmwRemark.setText(" FAILED ");
+        mmwRemark.setForeground(Color.red);
+        }
+        
+        //ComProg Remarks
+        if (comprogGrade.getSelectedItem() == comprogGrade.getItemAt(1) 
+                || comprogGrade.getSelectedItem() == comprogGrade.getItemAt(2)
+                || comprogGrade.getSelectedItem() == comprogGrade.getItemAt(3)
+                || comprogGrade.getSelectedItem() == comprogGrade.getItemAt(4)
+                || comprogGrade.getSelectedItem() == comprogGrade.getItemAt(5)
+                || comprogGrade.getSelectedItem() == comprogGrade.getItemAt(6)
+                || comprogGrade.getSelectedItem() == comprogGrade.getItemAt(7)
+                || comprogGrade.getSelectedItem() == comprogGrade.getItemAt(8)
+                || comprogGrade.getSelectedItem() == comprogGrade.getItemAt(9)) 
+         {
+            comprogRemark.setText(" PASSED ");
+                    comprogRemark.setForeground(Color.blue);
+        }
+        
+        else if (comprogGrade.getSelectedItem() == comprogGrade.getItemAt(10))
+        {
+                comprogRemark.setText("     INC ");
+        comprogRemark.setForeground(Color.red);
+        }
+        
+        else if (comprogGrade.getSelectedItem() == comprogGrade.getItemAt(11))
+        {
+                comprogRemark.setText(" FAILED ");
+        comprogRemark.setForeground(Color.red);
+        }
+        
+        //Assembly Remarks
+        if (assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(1) 
+                || assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(2)
+                || assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(3)
+                || assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(4)
+                || assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(5)
+                || assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(6)
+                || assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(7)
+                || assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(8)
+                || assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(9)) 
+      {
+            assemblyRemark.setText(" PASSED ");
+                    assemblyRemark.setForeground(Color.blue);
+        }
+        
+       else if (assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(10))
+        {
+                assemblyRemark.setText("     INC ");
+        assemblyRemark.setForeground(Color.red);
+        }
+        
+        else if (assemblyGrade.getSelectedItem() == assemblyGrade.getItemAt(11))
+        {
+                assemblyRemark.setText(" FAILED ");
+        assemblyRemark.setForeground(Color.red);
+        }
+        
+        //Discrete Remarks
+        if (discreteGrade.getSelectedItem() == discreteGrade.getItemAt(1) 
+                || discreteGrade.getSelectedItem() == discreteGrade.getItemAt(2)
+                || discreteGrade.getSelectedItem() == discreteGrade.getItemAt(3)
+                || discreteGrade.getSelectedItem() == discreteGrade.getItemAt(4)
+                || discreteGrade.getSelectedItem() == discreteGrade.getItemAt(5)
+                || discreteGrade.getSelectedItem() == discreteGrade.getItemAt(6)
+                || discreteGrade.getSelectedItem() == discreteGrade.getItemAt(7)
+                || discreteGrade.getSelectedItem() == discreteGrade.getItemAt(8)
+                || discreteGrade.getSelectedItem() == discreteGrade.getItemAt(9)) 
+      {
+            discreteRemark.setText(" PASSED ");
+                    discreteRemark.setForeground(Color.blue);
+        }
+        
+        else if (discreteGrade.getSelectedItem() == discreteGrade.getItemAt(10))
+        {
+                discreteRemark.setText("     INC ");
+        discreteRemark.setForeground(Color.red);
+        }
+        
+        else if (discreteGrade.getSelectedItem() == discreteGrade.getItemAt(11))
+        {
+                discreteRemark.setText(" FAILED ");
+        discreteRemark.setForeground(Color.red);
+        }
+        
+        //Aquatics Remark
+        if (aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(1) 
+                || aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(2)
+                || aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(3)
+                || aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(4)
+                || aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(5)
+                || aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(6)
+                || aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(7)
+                || aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(8)
+                || aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(9)) 
+        {
+            aquaticsRemark.setText(" PASSED ");
+                    aquaticsRemark.setForeground(Color.blue);
+        }
+        
+        else if (aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(10))
+        {
+                aquaticsRemark.setText("     INC ");
+        aquaticsRemark.setForeground(Color.red);
+        }
+        
+        else if (aquaticsGrade.getSelectedItem() == aquaticsGrade.getItemAt(11))
+        {
+                aquaticsRemark.setText(" FAILED ");
+        aquaticsRemark.setForeground(Color.red);
+        }
+        
+        //NSTP Remarks
+         if (nstpGrade.getSelectedItem() == nstpGrade.getItemAt(1) 
+                || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(2)
+                || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(3)
+                || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(4)
+                || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(5)
+                || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(6)
+                || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(7)
+                || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(8)
+                || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(9)) 
+       {
+            nstpRemark.setText(" PASSED ");
+                    nstpRemark.setForeground(Color.blue);
+        }
+        
+        else if (nstpGrade.getSelectedItem() == nstpGrade.getItemAt(10))
+        {
+                nstpRemark.setText("     INC ");
+        nstpRemark.setForeground(Color.red);
+        }
+        
+        else if (nstpGrade.getSelectedItem() == nstpGrade.getItemAt(11))
+        {
+                nstpRemark.setText(" FAILED ");
+        nstpRemark.setForeground(Color.red);
+        }
+    
     }//GEN-LAST:event_calcGWAActionPerformed
 
     private void sinesosGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinesosGradeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sinesosGradeActionPerformed
-
-    private void sinesosRemarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinesosRemarkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sinesosRemarkActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -491,17 +693,17 @@ class GradeEncoding extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> aquaticsGrade;
-    private javax.swing.JTextField aquaticsRemark;
+    private javax.swing.JLabel aquaticsRemark;
     private javax.swing.JTextField aquaticsUnits;
     private javax.swing.JComboBox<String> assemblyGrade;
-    private javax.swing.JTextField assemblyRemark;
+    private javax.swing.JLabel assemblyRemark;
     private javax.swing.JTextField assemblyUnits;
     private javax.swing.JButton calcGWA;
     private javax.swing.JComboBox<String> comprogGrade;
-    private javax.swing.JTextField comprogRemark;
+    private javax.swing.JLabel comprogRemark;
     private javax.swing.JTextField comprogUnits;
     private javax.swing.JComboBox<String> discreteGrade;
-    private javax.swing.JTextField discreteRemark;
+    private javax.swing.JLabel discreteRemark;
     private javax.swing.JTextField discreteUnits;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JTextField firstnameTF;
@@ -531,18 +733,18 @@ class GradeEncoding extends javax.swing.JFrame {
     private javax.swing.JTextField lastnameTF;
     private javax.swing.JTextField middlenameTF;
     private javax.swing.JComboBox<String> mmwGrade;
-    private javax.swing.JTextField mmwRemark;
+    private javax.swing.JLabel mmwRemark;
     private javax.swing.JTextField mmwUnits;
     private javax.swing.JComboBox<String> nstpGrade;
-    private javax.swing.JTextField nstpRemark;
+    private javax.swing.JLabel nstpRemark;
     private javax.swing.JTextField nstpUnits;
     private javax.swing.JComboBox<String> purcomGrade;
-    private javax.swing.JTextField purcomRemark;
+    private javax.swing.JLabel purcomRemark;
     private javax.swing.JTextField purcomUnits;
     private javax.swing.JButton saveButton;
     private javax.swing.JComboBox<String> sectionnameCB;
     private javax.swing.JComboBox<String> sinesosGrade;
-    private javax.swing.JTextField sinesosRemark;
+    private javax.swing.JLabel sinesosRemark;
     private javax.swing.JTextField sinesosUnits;
     private javax.swing.JTextField studentnumberTF;
     // End of variables declaration//GEN-END:variables
