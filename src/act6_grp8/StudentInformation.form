@@ -56,10 +56,11 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtLastName" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                                   <Component id="cmbProgram" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Component id="scrllpAddress" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtLastName" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                                           <Component id="btnRegister" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
@@ -91,7 +92,6 @@
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="scrllpAddress" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="scrllpRegistered" alignment="0" max="32767" attributes="0"/>
@@ -389,7 +389,7 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tblRegistered">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="studentData = new String[tblRegistered.getRowCount()][3];&#xa;ExpandableRow addRow = new ExpandableRow(studentData, txtFirstName.getText(), txtMiddleName.getText(), txtLastName.getText());&#xa;        addRow.setModel(tblRegistered);&#xa;&#xa;"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//ExpandableRow tblProperties = new ExpandableRow(tblRegistered);&#xa;//tblProperties.setModel(tblRegistered);&#xa;//tblProperties.getColumnNames().setColumnIdentifier(tblRegistered);&#xa;&#xa;"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>

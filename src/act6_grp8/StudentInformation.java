@@ -1,6 +1,7 @@
 package act6_grp8;
 
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
 
 class StudentInformation extends javax.swing.JFrame {
@@ -117,9 +118,9 @@ class StudentInformation extends javax.swing.JFrame {
 
         scrllpRegistered.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        studentData = new String[tblRegistered.getRowCount()][3];
-        ExpandableRow addRow = new ExpandableRow(studentData, txtFirstName.getText(), txtMiddleName.getText(), txtLastName.getText());
-        addRow.setModel(tblRegistered);
+        //ExpandableRow tblProperties = new ExpandableRow(tblRegistered);
+        //tblProperties.setModel(tblRegistered);
+        //tblProperties.getColumnNames().setColumnIdentifier(tblRegistered);
 
         scrllpRegistered.setViewportView(tblRegistered);
 
@@ -158,10 +159,11 @@ class StudentInformation extends javax.swing.JFrame {
                                     .addComponent(lblProgram))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cmbProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(scrllpAddress)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(btnRegister)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addGroup(layout.createSequentialGroup()
@@ -184,8 +186,7 @@ class StudentInformation extends javax.swing.JFrame {
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                     .addComponent(cbMusic))
                                                 .addComponent(cmbCollege, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(scrllpAddress)))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addComponent(scrllpRegistered))))
                 .addGap(46, 46, 46))
             .addGroup(layout.createSequentialGroup()
@@ -261,13 +262,10 @@ class StudentInformation extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         studentNum = txtStudentNo.getText();
-        ExpandableRow addRow = new ExpandableRow();
-        String[] rowData = {studentNum, txtFirstName.getText() + " " + txtMiddleName.getText() + " " + txtLastName.getText(), cmbProgram.getSelectedItem().toString()};
-        addRow.addRow(rowData);
-        for (int i = 0; i < tblRegistered.getRowCount(); i++) {
-            studentData[i][0] = txtStudentNo.getText();
-            studentData[i][1] = txtFirstName.getText() + " " + txtMiddleName.getText() + " " + txtLastName.getText();
-        }
+        name = txtFirstName.getText() + " " + txtMiddleName.getText() + " " + txtLastName.getText();
+        program = cmbProgram.getItemAt(cmbProgram.getSelectedIndex());
+        //ExpandableRow updateTable = new ExpandableRow(tblRegistered);
+        //updateTable.setModel(tblRegistered);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     public javax.swing.JButton getButton() {
@@ -299,8 +297,8 @@ class StudentInformation extends javax.swing.JFrame {
             new StudentInformation().setVisible(true);
         });
     }
-    
-    private String[][] studentData;
+
+
     private String name;
     private String studentNum;
     private String program;
@@ -340,38 +338,37 @@ class StudentInformation extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 }
-
-final class ExpandableRow extends DefaultTableModel {
+/*
+class ExpandableRow extends DefaultTableModel {
 
     DefaultTableModel tblmodelRegistered = new DefaultTableModel();
-    String[][] studentData;
+    String[][] tableContent;
 
-    public ExpandableRow(String[][] studentData, String fName, String mName, String lName, String prog) {
+    public ExpandableRow(javax.swing.JTable table) {
         super();
         this.studentData = new String[studentData.length][3];
 
-        String name = fName + " " + mName + " " + lName;
-
-        // Populate the array using a loop
-        for (int i = 0; i < studentData.length; i++) {
-            this.studentData[i][0] = studentData[i][0];
-            this.studentData[i][1] = name;
-            this.studentData[i][2] = studentData[i][1];
-        }
-
-        tblmodelRegistered = new DefaultTableModel(this.studentData, getColumnNames());
+    }
+    
+    public void rowData (String studentNum, String name, String prog) {
+        
     }
 
-    @Override
-    public void addRow(Object[] rowData) {
-        tblmodelRegistered.addRow(rowData);
+    public void addRow(Object[] studentData, String studentNum, String name, String prog) {
+        studentData[0] = studentNum;
+        studentData[1] = name;
+        studentData[2] = prog;
+
+        tblmodelRegistered.addRow(studentData);
     }
 
-    public String[] getColumnNames() {
-        return new String[]{"Student Number", "Student Name", "Program"};
+    public static Object[] getColumnNames() {
+        return new Object[]{"Student Number", "Student Name", "Program"};
     }
 
     public void setModel(javax.swing.JTable table) {
+        tblmodelRegistered = new DefaultTableModel(this.studentData, getColumnNames());
         table.setModel(tblmodelRegistered);
     }
 }
+*/
