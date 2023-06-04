@@ -1,9 +1,5 @@
 package act6_grp8;
 
-import java.awt.event.ActionListener;
-import java.util.Arrays;
-import javax.swing.table.DefaultTableModel;
-
 class StudentInformation extends javax.swing.JFrame {
 
     /**
@@ -22,6 +18,9 @@ class StudentInformation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup1.add(rbtnMale);
+        buttonGroup1.add(rbtnFemale);
         lblSex = new javax.swing.JLabel();
         rbtnMale = new javax.swing.JRadioButton();
         rbtnFemale = new javax.swing.JRadioButton();
@@ -84,7 +83,12 @@ class StudentInformation extends javax.swing.JFrame {
         lblTitle.setText("Student Information");
         lblTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        cmbCampus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ABUCAY", "BAGAC", "BALANGA", "DINALUPIHAN", "MAIN", "ORANI" }));
+        cmbCampus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ABUCAY", "BALANGA", "DINALUPIHAN", "MAIN", "ORANI" }));
+        cmbCampus.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbCampusItemStateChanged(evt);
+            }
+        });
 
         lblStudentNo.setText("Student No.:");
 
@@ -118,10 +122,29 @@ class StudentInformation extends javax.swing.JFrame {
 
         scrllpRegistered.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        //ExpandableRow tblProperties = new ExpandableRow(tblRegistered);
-        //tblProperties.setModel(tblRegistered);
-        //tblProperties.getColumnNames().setColumnIdentifier(tblRegistered);
+        tblRegistered.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
+            },
+            new String [] {
+                "Student Number", "Student Name", "Title 3"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         scrllpRegistered.setViewportView(tblRegistered);
 
         lblMiddleName.setText("Middle Name");
@@ -264,9 +287,21 @@ class StudentInformation extends javax.swing.JFrame {
         studentNum = txtStudentNo.getText();
         name = txtFirstName.getText() + " " + txtMiddleName.getText() + " " + txtLastName.getText();
         program = cmbProgram.getItemAt(cmbProgram.getSelectedIndex());
-        //ExpandableRow updateTable = new ExpandableRow(tblRegistered);
-        //updateTable.setModel(tblRegistered);
+        
+        if (!studentNum.isBlank() || !txtFirstName.getText().isBlank() || !txtMiddleName.getText().isBlank() || !txtLastName.getText().isBlank() || !txtAddress.getText().isBlank() || buttonGroup1.getSelection() != null) {
+        String studentData[] = {studentNum,name,program};
+        
+        javax.swing.table.DefaultTableModel tblModel = (javax.swing.table.DefaultTableModel) tblRegistered.getModel();
+        tblModel.addRow(studentData);
+        } else {
+             javax.swing.JOptionPane.showMessageDialog(null, "Fill up all fields", "Missing Information", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void cmbCampusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCampusItemStateChanged
+        Classes classes = new Classes(evt);
+        classes.aaaaa(evt);
+    }//GEN-LAST:event_cmbCampusItemStateChanged
 
     public javax.swing.JButton getButton() {
         return btnRegister;
@@ -304,6 +339,7 @@ class StudentInformation extends javax.swing.JFrame {
     private String program;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnRegister;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox cbCook;
     private javax.swing.JCheckBox cbGames;
     private javax.swing.JCheckBox cbInternet;
@@ -336,39 +372,40 @@ class StudentInformation extends javax.swing.JFrame {
     public javax.swing.JTextField txtMiddleName;
     public javax.swing.JTextField txtStudentNo;
     // End of variables declaration//GEN-END:variables
-
 }
-/*
-class ExpandableRow extends DefaultTableModel {
 
-    DefaultTableModel tblmodelRegistered = new DefaultTableModel();
-    String[][] tableContent;
-
-    public ExpandableRow(javax.swing.JTable table) {
-        super();
-        this.studentData = new String[studentData.length][3];
-
-    }
+final class Classes extends java.util.ArrayList<String> {
     
-    public void rowData (String studentNum, String name, String prog) {
+    public Classes(java.awt.event.ItemEvent evt) {
+        aaaaa(evt);
+    }
+    public void aaaaa(java.awt.event.ItemEvent evt) {
+        StudentInformation info = new StudentInformation();
+        info.cmbCampus.getSelectedItem();
         
-    }
-
-    public void addRow(Object[] studentData, String studentNum, String name, String prog) {
-        studentData[0] = studentNum;
-        studentData[1] = name;
-        studentData[2] = prog;
-
-        tblmodelRegistered.addRow(studentData);
-    }
-
-    public static Object[] getColumnNames() {
-        return new Object[]{"Student Number", "Student Name", "Program"};
-    }
-
-    public void setModel(javax.swing.JTable table) {
-        tblmodelRegistered = new DefaultTableModel(this.studentData, getColumnNames());
-        table.setModel(tblmodelRegistered);
+        switch (info.toString()) {
+            case "Main" : 
+                info.cmbCollege.removeAllItems();
+                info.cmbCollege.addItem("College of Engineering and Architecture");
+                info.cmbCollege.addItem("College of Arts and Sciences");
+                info.cmbCollege.addItem("College of Information and Communication Technology");
+                info.cmbCollege.addItem("College of Technology");
+                info.cmbCollege.addItem("College of Nursing");
+                info.cmbCollege.getSelectedIndex();
+                switch (info.toString()) {
+                    case "0" : ;
+                    case "1" : ;
+                    case "2" : ;
+                    case "3" : ;
+                    case "4" : ;
+                    default : ;
+                }
+            case "Balanga" : ;
+            case "Dinalupihan" : ;
+            case "Abucay" : ;
+            case "Orani" : ;
+            default : ;
+            
+        }
     }
 }
-*/
