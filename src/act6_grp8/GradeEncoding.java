@@ -193,15 +193,13 @@ class GradeEncoding extends javax.swing.JFrame {
 
         infoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Student No.", "Student Name", "GWA", "Remarks"
             }
         ));
+        infoTable.setRowSorter(null);
         jScrollPane1.setViewportView(infoTable);
 
         jLabel20.setText("Final Grade:");
@@ -704,28 +702,21 @@ class GradeEncoding extends javax.swing.JFrame {
         txtFinalGrade.setText(finalGrade);
         
         //GWA Remarks
-         if (finalGWA >= 1.00000 && finalGWA <= 3.00000) 
-       {
+        if (finalGWA >= 1.00000 && finalGWA <= 3.00000){
             finalgwaRemark.setText(" PASSED ");
-                    finalgwaRemark.setForeground(Color.blue);
-                    JOptionPane.showMessageDialog(this, "Looks like you've passed. Great work, keep it up!");
+            finalgwaRemark.setForeground(Color.blue);
+        
+        } else if (finalGWA >= 4.00000 && finalGWA < 5.00000){
+                   finalgwaRemark.setText("     INC ");
+                   finalgwaRemark.setForeground(Color.red);
+        
+        } else if (finalGWA == 5.00000) {
+                   finalgwaRemark.setText(" FAILED ");
+                   finalgwaRemark.setForeground(Color.red);
+                   
+            
         }
-        
-        else if (finalGWA >= 4.00000 && finalGWA < 5.00000)
-        {
-                finalgwaRemark.setText("     INC ");
-        finalgwaRemark.setForeground(Color.red);
-        JOptionPane.showMessageDialog(this, "Looks like your grades are incomplete. You should go talk to your professor!");
-        }
-        
-        else if (finalGWA == 5.00000)
-        {
-                finalgwaRemark.setText(" FAILED ");
-        finalgwaRemark.setForeground(Color.red);
-        JOptionPane.showMessageDialog(this, "Tanga!");
-        }
-        
-        
+             
     }//GEN-LAST:event_calcGWAActionPerformed
 
     private void sinesosGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinesosGradeActionPerformed
@@ -733,7 +724,40 @@ class GradeEncoding extends javax.swing.JFrame {
     }//GEN-LAST:event_sinesosGradeActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-       
+        if (txtFinalGrade.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Grade cannot be empty!", getTitle(), javax.swing.JOptionPane.ERROR_MESSAGE);
+            
+        } else if (studentnumberTF.getText().isEmpty() &&
+                  lastnameTF.getText().isEmpty() && 
+                  firstnameTF.getText().isEmpty() && 
+                  middlenameTF.getText().isEmpty()){
+                  
+                  JOptionPane.showMessageDialog(null, "Student Information cannot be Empty!", getTitle(), javax.swing.JOptionPane.ERROR_MESSAGE);
+            
+        } else {
+            String name = lastnameTF.getText() + ", " + firstnameTF.getText() + " " + middlenameTF.getText();
+            String gwa = txtFinalGrade.getText();
+            String remark;
+            double finalGrade = Double.parseDouble(gwa);
+            
+            if (finalGrade >= 1.00000 && finalGrade <= 3.00000) {
+                remark = "PASSED";
+                    
+            } else if (finalGrade >= 4.00000 && finalGrade < 5.00000){
+                       remark = "INC";
+                       JOptionPane.showMessageDialog(null, "Need to complete course/s", getTitle(), javax.swing.JOptionPane.ERROR_MESSAGE);
+        
+            } else {remark = "FAILED";
+                    JOptionPane.showMessageDialog(null, "Need to reenroll course/s", getTitle(), javax.swing.JOptionPane.ERROR_MESSAGE);
+        
+            }
+                
+            String saveInfo[] = {studentnumberTF.getText(), name, gwa, remark};
+                       
+            javax.swing.table.DefaultTableModel tblModel = (javax.swing.table.DefaultTableModel) infoTable.getModel();
+            tblModel.addRow(saveInfo);    
+        
+        }
     }//GEN-LAST:event_saveButtonActionPerformed
 
     public static void main(String args[]) {
