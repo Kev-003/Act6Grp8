@@ -733,35 +733,9 @@ class GradeEncoding extends javax.swing.JFrame {
     }//GEN-LAST:event_sinesosGradeActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-         if (nstpGrade.getSelectedItem() == nstpGrade.getItemAt(1) 
-             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(2)
-             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(3)
-             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(4)
-             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(5)
-             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(6)
-             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(7)
-             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(8)
-             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(9)
-             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(10)){
-
-            showGradeRemark(); //opens remarks
-            
-        } else {
-            showFixRemark(); //opens remark if has INC or FAILED
-        }   
-        
-         
-        
+       
     }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void showGradeRemark() {
-        javax.swing.JOptionPane.showMessageDialog(null, "Burat", getTitle(), javax.swing.JOptionPane.ERROR_MESSAGE);
-    }
-
-    private void showFixRemark() {
-        javax.swing.JOptionPane.showMessageDialog(null, "Tanga", "", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    }
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
