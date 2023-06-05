@@ -67,7 +67,7 @@ class GradeEncoding extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         infoTable = new javax.swing.JTable();
         jLabel20 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtFinalGrade = new javax.swing.JTextField();
         sinesosRemark = new javax.swing.JLabel();
         purcomRemark = new javax.swing.JLabel();
         mmwRemark = new javax.swing.JLabel();
@@ -176,6 +176,11 @@ class GradeEncoding extends javax.swing.JFrame {
         jLabel19.setText("Remarks");
 
         saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         calcGWA.setText("Calculate GWA");
         calcGWA.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +204,7 @@ class GradeEncoding extends javax.swing.JFrame {
 
         jLabel20.setText("Final Grade:");
 
-        jTextField1.setEditable(false);
+        txtFinalGrade.setEditable(false);
 
         sinesosRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
@@ -317,7 +322,7 @@ class GradeEncoding extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel20)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtFinalGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(119, 119, 119)
@@ -418,7 +423,7 @@ class GradeEncoding extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFinalGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(calcGWA)
@@ -655,12 +660,80 @@ class GradeEncoding extends javax.swing.JFrame {
         nstpRemark.setForeground(Color.red);
         }
     
+        String sinesos = sinesosGrade.getSelectedItem().toString();
+        String purcom = purcomGrade.getSelectedItem().toString();
+        String mmw = mmwGrade.getSelectedItem().toString();
+        String comprog = comprogGrade.getSelectedItem().toString();
+        String assembly = assemblyGrade.getSelectedItem().toString();
+        String discrete = discreteGrade.getSelectedItem().toString();
+        String aquatics = aquaticsGrade.getSelectedItem().toString();
+        String nstp = nstpGrade.getSelectedItem().toString();
+        
+        double sinesosFinal = Double.parseDouble(sinesos);
+        double purcomFinal = Double.parseDouble(purcom);
+        double mmwFinal = Double.parseDouble(mmw);
+        double comprogFinal = Double.parseDouble(comprog);
+        double assemblyFinal = Double.parseDouble(assembly);
+        double discreteFinal = Double.parseDouble(discrete);
+        double aquaticsFinal = Double.parseDouble(aquatics);
+        double nstpFinal = Double.parseDouble(nstp);
+        
+        double units[] = {3.0, 2.0,};
+        
+        double sumGWA = ((sinesosFinal * units[0]) + 
+                         (purcomFinal * units[0]) +
+                         (mmwFinal * units[0]) + 
+                         (comprogFinal * units[0]) +
+                         (assemblyFinal * units[0]) + 
+                         (discreteFinal * units[0]) +
+                         (aquaticsFinal * units[1]) +
+                         (nstpFinal * units[0]));
+        
+        double sumUnits = ((units[0] * 7) + units[1]);
+        
+        double finalGWA = (sumGWA / sumUnits);
+        
+        String finalGrade = String.format("%.5f", finalGWA);
+        
+        txtFinalGrade.setText(finalGrade);
+        
+        
     }//GEN-LAST:event_calcGWAActionPerformed
 
     private void sinesosGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sinesosGradeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sinesosGradeActionPerformed
 
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+         if (nstpGrade.getSelectedItem() == nstpGrade.getItemAt(1) 
+             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(2)
+             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(3)
+             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(4)
+             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(5)
+             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(6)
+             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(7)
+             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(8)
+             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(9)
+             || nstpGrade.getSelectedItem() == nstpGrade.getItemAt(10)){
+
+            showGradeRemark(); //opens remarks
+            
+        } else {
+            showFixRemark(); //opens remark if has INC or FAILED
+        }   
+        
+        
+        
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void showGradeRemark() {
+        javax.swing.JOptionPane.showMessageDialog(null, "Burat", getTitle(), javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+
+    private void showFixRemark() {
+        javax.swing.JOptionPane.showMessageDialog(null, "Tanga", "", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -729,7 +802,6 @@ class GradeEncoding extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField lastnameTF;
     private javax.swing.JTextField middlenameTF;
     private javax.swing.JComboBox<String> mmwGrade;
@@ -747,5 +819,6 @@ class GradeEncoding extends javax.swing.JFrame {
     private javax.swing.JLabel sinesosRemark;
     private javax.swing.JTextField sinesosUnits;
     private javax.swing.JTextField studentnumberTF;
+    private javax.swing.JTextField txtFinalGrade;
     // End of variables declaration//GEN-END:variables
 }
