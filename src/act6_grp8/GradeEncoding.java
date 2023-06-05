@@ -2,6 +2,7 @@ package act6_grp8;
 
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JOptionPane;
 
 class GradeEncoding extends javax.swing.JFrame {
 
@@ -224,7 +225,6 @@ class GradeEncoding extends javax.swing.JFrame {
         nstpRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         finalgwaRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        finalgwaRemark.setText("remark");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -708,18 +708,21 @@ class GradeEncoding extends javax.swing.JFrame {
        {
             finalgwaRemark.setText(" PASSED ");
                     finalgwaRemark.setForeground(Color.blue);
+                    JOptionPane.showMessageDialog(this, "Looks like you've passed. Great work, keep it up!");
         }
         
         else if (finalGWA >= 4.00000 && finalGWA < 5.00000)
         {
                 finalgwaRemark.setText("     INC ");
         finalgwaRemark.setForeground(Color.red);
+        JOptionPane.showMessageDialog(this, "Looks like your grades are incomplete. You should go talk to your professor!");
         }
         
         else if (finalGWA == 5.00000)
         {
                 finalgwaRemark.setText(" FAILED ");
         finalgwaRemark.setForeground(Color.red);
+        JOptionPane.showMessageDialog(this, "Tanga!");
         }
         
         
@@ -747,7 +750,7 @@ class GradeEncoding extends javax.swing.JFrame {
             showFixRemark(); //opens remark if has INC or FAILED
         }   
         
-        
+         
         
     }//GEN-LAST:event_saveButtonActionPerformed
 
