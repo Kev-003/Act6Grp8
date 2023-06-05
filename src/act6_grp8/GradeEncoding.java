@@ -76,6 +76,7 @@ class GradeEncoding extends javax.swing.JFrame {
         discreteRemark = new javax.swing.JLabel();
         aquaticsRemark = new javax.swing.JLabel();
         nstpRemark = new javax.swing.JLabel();
+        finalgwaRemark = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -222,6 +223,9 @@ class GradeEncoding extends javax.swing.JFrame {
 
         nstpRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
+        finalgwaRemark.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        finalgwaRemark.setText("remark");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -339,7 +343,8 @@ class GradeEncoding extends javax.swing.JFrame {
                             .addComponent(mmwRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(purcomRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(sinesosRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel19))
+                            .addComponent(jLabel19)
+                            .addComponent(finalgwaRemark, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
@@ -423,7 +428,8 @@ class GradeEncoding extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(txtFinalGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFinalGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(finalgwaRemark))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(calcGWA)
@@ -697,6 +703,25 @@ class GradeEncoding extends javax.swing.JFrame {
         
         txtFinalGrade.setText(finalGrade);
         
+        //GWA Remarks
+         if (finalGWA >= 1.00000 && finalGWA <= 3.00000) 
+       {
+            finalgwaRemark.setText(" PASSED ");
+                    finalgwaRemark.setForeground(Color.blue);
+        }
+        
+        else if (finalGWA >= 4.00000 && finalGWA < 5.00000)
+        {
+                finalgwaRemark.setText("     INC ");
+        finalgwaRemark.setForeground(Color.red);
+        }
+        
+        else if (finalGWA == 5.00000)
+        {
+                finalgwaRemark.setText(" FAILED ");
+        finalgwaRemark.setForeground(Color.red);
+        }
+        
         
     }//GEN-LAST:event_calcGWAActionPerformed
 
@@ -779,6 +804,7 @@ class GradeEncoding extends javax.swing.JFrame {
     private javax.swing.JLabel discreteRemark;
     private javax.swing.JTextField discreteUnits;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JLabel finalgwaRemark;
     private javax.swing.JTextField firstnameTF;
     private javax.swing.JTable infoTable;
     private javax.swing.JLabel jLabel1;
