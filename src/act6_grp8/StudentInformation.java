@@ -1,5 +1,7 @@
 package act6_grp8;
 
+import java.awt.event.ItemEvent;
+
 class StudentInformation extends javax.swing.JFrame {
 
     /**
@@ -19,8 +21,6 @@ class StudentInformation extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup1.add(rbtnMale);
-        buttonGroup1.add(rbtnFemale);
         lblSex = new javax.swing.JLabel();
         rbtnMale = new javax.swing.JRadioButton();
         rbtnFemale = new javax.swing.JRadioButton();
@@ -54,6 +54,8 @@ class StudentInformation extends javax.swing.JFrame {
         lblMiddleName = new javax.swing.JLabel();
         lblAddress = new javax.swing.JLabel();
 
+        buttonGroup1.add(rbtnMale);  buttonGroup1.add(rbtnFemale);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(720, 680));
 
@@ -84,9 +86,9 @@ class StudentInformation extends javax.swing.JFrame {
         lblTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         cmbCampus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ABUCAY", "BALANGA", "DINALUPIHAN", "MAIN", "ORANI" }));
-        cmbCampus.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbCampusItemStateChanged(evt);
+        cmbCampus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCampusActionPerformed(evt);
             }
         });
 
@@ -98,9 +100,12 @@ class StudentInformation extends javax.swing.JFrame {
 
         lblProgram.setText("Program");
 
-        cmbCollege.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cmbProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCollege.setPrototypeDisplayValue("Choose Program");
+        cmbCollege.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCollegeActionPerformed(evt);
+            }
+        });
 
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +132,7 @@ class StudentInformation extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Student Number", "Student Name", "Title 3"
+                "Student Number", "Student Name", "Program"
             }
         ) {
             Class[] types = new Class [] {
@@ -287,26 +292,227 @@ class StudentInformation extends javax.swing.JFrame {
         studentNum = txtStudentNo.getText();
         name = txtFirstName.getText() + " " + txtMiddleName.getText() + " " + txtLastName.getText();
         program = cmbProgram.getItemAt(cmbProgram.getSelectedIndex());
-        
-        if (!studentNum.isBlank() || !txtFirstName.getText().isBlank() || !txtMiddleName.getText().isBlank() || !txtLastName.getText().isBlank() || !txtAddress.getText().isBlank() || buttonGroup1.getSelection() != null) {
-        String studentData[] = {studentNum,name,program};
-        
-        javax.swing.table.DefaultTableModel tblModel = (javax.swing.table.DefaultTableModel) tblRegistered.getModel();
-        tblModel.addRow(studentData);
-        } else {
-             javax.swing.JOptionPane.showMessageDialog(null, "Fill up all fields", "Missing Information", javax.swing.JOptionPane.ERROR_MESSAGE);
+
+        javax.swing.ButtonModel selectedButton = buttonGroup1.getSelection();
+
+        if (studentNum.isBlank() && txtFirstName.getText().isBlank() && txtMiddleName.getText().isBlank() && txtLastName.getText().isBlank() && txtAddress.getText().isBlank() && selectedButton == null) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Fill up all fields", "Missing Information", javax.swing.JOptionPane.ERROR_MESSAGE);
+        } else if (!isIntegerFormat(studentNum)) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Enter a valid student number.", "Invalid Student Number", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }else {
+
+            String studentData[] = {studentNum, name, program};
+
+            javax.swing.table.DefaultTableModel tblModel = (javax.swing.table.DefaultTableModel) tblRegistered.getModel();
+            tblModel.addRow(studentData);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
-    private void cmbCampusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCampusItemStateChanged
-        Classes classes = new Classes(evt);
-        classes.aaaaa(evt);
-    }//GEN-LAST:event_cmbCampusItemStateChanged
+    private void cmbCampusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCampusActionPerformed
 
-    public javax.swing.JButton getButton() {
-        return btnRegister;
-    }
+        colleges = new java.util.ArrayList<>();
+        switch (cmbCampus.getSelectedItem().toString()) {
+            case "MAIN" -> {
+                cmbCollege.removeAllItems();
+                colleges.addAll(java.util.Arrays.asList("College of Engineering and Architecture", 
+                        "College of Arts and Sciences", 
+                        "College of Information and Communication Technology", 
+                        "College of Technology", 
+                        "College of Nursing"));
 
+                for (String college : colleges) {
+                    cmbCollege.addItem(college);
+                }
+            }
+
+            case "BALANGA" -> {
+                cmbCollege.removeAllItems();
+                colleges.addAll(java.util.Arrays.asList("College of Business and Accountancy", 
+                        "College of Psychology", 
+                        "College of Secondary Education"));
+
+                for (String college : colleges) {
+                    cmbCollege.addItem(college);
+                }
+            }
+            case "DINALUPIHAN" -> {
+                cmbCollege.removeAllItems();
+                colleges.addAll(java.util.Arrays.asList("Choose Program"));
+
+                for (String college : colleges) {
+                    cmbCollege.addItem(college);
+                }
+            }
+            case "ABUCAY" -> {
+                cmbCollege.removeAllItems();
+                colleges.addAll(java.util.Arrays.asList("Choose Program"));
+
+                for (String college : colleges) {
+                    cmbCollege.addItem(college);
+                }
+            }
+            case "ORANI" -> {
+                cmbCollege.removeAllItems();
+                colleges.addAll(java.util.Arrays.asList("Choose Program"));
+
+                for (String college : colleges) {
+                    cmbCollege.addItem(college);
+                }
+            }
+
+            default -> {
+            }
+        }
+        // Handle default case if needed
+
+    }//GEN-LAST:event_cmbCampusActionPerformed
+
+    private void cmbCollegeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCollegeActionPerformed
+        programs = new java.util.ArrayList<>();
+        switch (cmbCampus.getSelectedItem().toString()) {
+            case "MAIN" -> {
+                switch (cmbCollege.getSelectedIndex()) {
+                    case 0 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Architecture", 
+                                "Bachelor of Science in Civil Engineering", 
+                                "Bachelor of Science in Electrical Engineering", 
+                                "Bachelor of Science in Electronics and Communications Engineering", 
+                                "Bachelor of Science in Mechanical Engineering"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                    case 1 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Hospitality Management", 
+                                "Bachelor of Science in Tourism Management", 
+                                "Bachelor of Arts in Communication"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                    case 2 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Computer Science", 
+                                "Bachelor of Science in Information Technology", 
+                                "Bachelor of Science in Entertainment and Multimedia Computing"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                    case 3 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Industrial Technology", 
+                                "Bachelor of Technical-Vocational Teacher Education"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                    case 4 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Midwifery", 
+                                "Bachelor of Science in Nursing"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                    default -> {
+                    }
+                }
+
+            }
+
+            case "BALANGA" -> {
+                switch (cmbCollege.getSelectedIndex()) {
+                    case 0 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Accountancy", 
+                                "Bachelor of Science in Business Administration", 
+                                "Bachelor in Public Administration"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                    case 1 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Psychology",  
+                                "Bachelor of Arts in Psychology"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                    case 2 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Secondary Education"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                }
+            }
+            case "DINALUPIHAN" -> {
+                switch (cmbCollege.getSelectedIndex()) {
+                    case 0 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Early Childhood Education", 
+                                "Bachelor of Elementary Education", 
+                                "Bachelor in Secondary Education"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                }
+            }
+            case "ABUCAY" -> {
+                switch (cmbCollege.getSelectedIndex()) {
+                    case 0 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Agriculture", 
+                                "Bachelor of Technical-Vocational Teacher Education", 
+                                "Bachelor of Science in Agricultural and Biosystem Engineering"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                }
+            }
+            case "ORANI" -> {
+                switch (cmbCollege.getSelectedIndex()) {
+                    case 0 -> {
+                        cmbProgram.removeAllItems();
+                        programs.addAll(java.util.Arrays.asList("Bachelor of Science in Fisheries", 
+                                "Bachelor of Technical Livelihood Education",
+                                "Bachelor of Physical Education",
+                                "Bachelor of Science in Exercise and Sports Science"));
+
+                        for (String prog : programs) {
+                            cmbProgram.addItem(prog);
+                        }
+                    }
+                }
+            }
+
+            default -> {
+            }
+        }
+    }//GEN-LAST:event_cmbCollegeActionPerformed
+
+    private boolean isIntegerFormat(String text) {
+            String integerFormat = "\\d{2}-\\d{5}"; //accepts only the current student number format that the university uses
+            return text.matches(integerFormat);
+        }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -333,10 +539,11 @@ class StudentInformation extends javax.swing.JFrame {
         });
     }
 
-
     private String name;
     private String studentNum;
     private String program;
+    private java.util.ArrayList<String> colleges = new java.util.ArrayList<>();
+    private java.util.ArrayList<String> programs = new java.util.ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnRegister;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -372,40 +579,4 @@ class StudentInformation extends javax.swing.JFrame {
     public javax.swing.JTextField txtMiddleName;
     public javax.swing.JTextField txtStudentNo;
     // End of variables declaration//GEN-END:variables
-}
-
-final class Classes extends java.util.ArrayList<String> {
-    
-    public Classes(java.awt.event.ItemEvent evt) {
-        aaaaa(evt);
-    }
-    public void aaaaa(java.awt.event.ItemEvent evt) {
-        StudentInformation info = new StudentInformation();
-        info.cmbCampus.getSelectedItem();
-        
-        switch (info.toString()) {
-            case "Main" : 
-                info.cmbCollege.removeAllItems();
-                info.cmbCollege.addItem("College of Engineering and Architecture");
-                info.cmbCollege.addItem("College of Arts and Sciences");
-                info.cmbCollege.addItem("College of Information and Communication Technology");
-                info.cmbCollege.addItem("College of Technology");
-                info.cmbCollege.addItem("College of Nursing");
-                info.cmbCollege.getSelectedIndex();
-                switch (info.toString()) {
-                    case "0" : ;
-                    case "1" : ;
-                    case "2" : ;
-                    case "3" : ;
-                    case "4" : ;
-                    default : ;
-                }
-            case "Balanga" : ;
-            case "Dinalupihan" : ;
-            case "Abucay" : ;
-            case "Orani" : ;
-            default : ;
-            
-        }
-    }
 }
