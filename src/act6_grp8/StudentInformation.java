@@ -1,7 +1,5 @@
 package act6_grp8;
 
-import java.awt.event.ItemEvent;
-
 class StudentInformation extends javax.swing.JFrame {
 
     /**
