@@ -1,7 +1,6 @@
 package act6_grp8;
 
 import java.awt.Color;
-import java.awt.Font;
 import javax.swing.JOptionPane;
 
 class GradeEncoding extends javax.swing.JFrame {
